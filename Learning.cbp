@@ -21,8 +21,6 @@
 		</Compiler>
 		<Linker>
 			<Add library="GL" />
-			<Add library="glapi" />
-			<Add library="GLU" />
 			<Add library="glut" />
 		</Linker>
 		<Unit filename="main.cpp" />
