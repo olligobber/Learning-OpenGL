@@ -1,9 +1,6 @@
 # depslib dependency file v1.0
-1426752118 source:/media/oliver/Kazoku/Programming/OpenGL/Learning/main.cpp
-	<GL/gl.h>
-	<GL/glut.h>
-
-1426752565 source:/media/Files_Linux/Learning/main.cpp
-	<GL/gl.h>
-	<GL/glut.h>
+1430112114 source:/media/Files_Linux/Learning-OpenGL/main.cpp
+	<SFML/Graphics.hpp>
+	<SFML/OpenGL.hpp>
+	<iostream>
 

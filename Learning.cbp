@@ -3,32 +3,55 @@
 	<FileVersion major="1" minor="6" />
 	<Project>
 		<Option title="Learning" />
+		<Option platforms="Windows;Unix;" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Linux">
+				<Option platforms="Unix;" />
 				<Option output="bin/Learning" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/" />
-				<Option type="1" />
+				<Option type="0" />
 				<Option compiler="gcc" />
 				<Compiler>
-					<Add option="-g" />
+					<Add directory="/home/oliver/.SFML/include" />
 				</Compiler>
+				<Linker>
+					<Add library="GL" />
+					<Add library="GLU" />
+					<Add directory="/home/oliver/.SFML/lib" />
+				</Linker>
+			</Target>
+			<Target title="Windows">
+				<Option platforms="Windows;" />
+				<Option output="bin/Learning" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add directory="../../../Software/SFML/include" />
+				</Compiler>
+				<Linker>
+					<Add library="opengl32" />
+					<Add library="glu32" />
+					<Add directory="../../../Software/SFML/lib" />
+				</Linker>
 			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
 		<Linker>
-			<Add library="GL" />
-			<Add library="glapi" />
-			<Add library="GLU" />
-			<Add library="glut" />
+			<Add library="sfml-graphics" />
+			<Add library="sfml-window" />
+			<Add library="sfml-system" />
 		</Linker>
 		<Unit filename="main.cpp" />
+		<Unit filename="sfml-graphics-2.dll" />
+		<Unit filename="sfml-system-2.dll" />
+		<Unit filename="sfml-window-2.dll" />
 		<Extensions>
 			<code_completion />
 			<debugger />
+			<envvars />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>
