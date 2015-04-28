@@ -11,7 +11,7 @@ const GLchar* vertexSource =
     "}";
 const GLchar* fragmentSource =
     "#version 150 core\n"
-    "in vec3 color;"
+    "uniform vec3 color;"
     "out vec4 outColor;"
     "void main() {"
     "   outColor = vec4(color, 1.0);"
@@ -20,18 +20,17 @@ const GLchar* fragmentSource =
 int main () {
     // Start OpenGL, GLEW and SFML
     sf::Window window(sf::VideoMode(800, 600), "OpenGL");
+    sf::Clock clock;
     glViewport(0, 0, 800, 600);
     glewExperimental = GL_TRUE;
     glewInit();
-    GLuint vbo;
-    glGenBuffers(1, &vbo);
     GLuint vao;
     glGenVertexArrays(1, &vao);
     glBindVertexArray(vao);
-    sf::Clock clock;
+    GLuint vbo;
+    glGenBuffers(1, &vbo);
     // Set up variables
     int fade = 0, dfade = 1;
-    long long tick = 0;
     float vertices[] = {
         -0.5f, -0.5f, 0.0f,
         -0.5f, 0.5f, 0.0f,
@@ -69,6 +68,7 @@ int main () {
     glVertexAttribPointer(posAttrib, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), 0);
     // Set up Main Loop
     bool running = true;
+    long long tick = 0;
     clock.restart();
     // Main Loop
     while (running) {
@@ -88,7 +88,7 @@ int main () {
             fade += dfade;
             if (fade == 120 || fade == 0) dfade =- dfade;
             glUniform3f (uniColor, fade/120.0f, 1.0f, 1.0f);
-            glDrawArrays(GL_TRIANGLES, 0, 6);
+            glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
             window.display();
         }
     }
