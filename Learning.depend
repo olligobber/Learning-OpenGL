@@ -1,6 +1,6 @@
 # depslib dependency file v1.0
-1430112114 source:/media/Files_Linux/Learning-OpenGL/main.cpp
+1430181736 source:/media/Files_Linux/Learning-OpenGL/main.cpp
+	<GL/glew.h>
 	<SFML/Graphics.hpp>
 	<SFML/OpenGL.hpp>
-	<iostream>
 
